@@ -59,7 +59,7 @@
     "experimentalDecorators": true,
     "strictPropertyInitialization": false,
     "rootDir": ".",
-    "outDir": "../dist"
+    "outDir": "./dist"
   },
   "exclude": [
     "node_modules"
