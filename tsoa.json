@@ -1,14 +1,14 @@
 {
     "swagger": {
         "outputDirectory": "./dist/src",
-        "entryFile": "./src/server.ts",
+        "entryFile": "./src/index.ts",
         "basePath": "/api/v1",
         "name": "Happy tsoa",
-        "host": "localhost:3001"
+        "host": "localhost:3000"
     },
     "routes": {
         "basePath": "/api/v1",
-        "entryFile": "./src/server.ts",
+        "entryFile": "./src/index.ts",
         "middleware": "hapi",
         "routesDir": "./src"
     }

@@ -1,18 +1,17 @@
 
 import 'reflect-metadata';
-import BookRepository from '../repositories/BookRepository';
-import { BookDocument } from '../dataAccess/models/BookDocument';
-import { Book } from '../domains/Book';
+import { Book } from '../models/Book';
 import { injectable, inject } from 'inversify';
+import { BookRepository } from '../repositories/BookRepository';
 
 @injectable()
-export default class BookService {
+export class BookService {
 
     @inject('BookRepository')
     private bookRepository: BookRepository;
 
-    public create(item: Book): Promise<Book> {
-        return this.bookRepository.create(<BookDocument>item);
+    public retrieve(): Promise<Book[]> {
+        return this.bookRepository.retrieve();
     }
-
 }
+

@@ -1,11 +1,41 @@
 // TODO: Replace this with HAPI middleware stuff
 /* tslint:disable */
 import { Controller, ValidateParam, FieldErrors, ValidateError, TsoaRoute } from 'tsoa';
+import { BookController } from './controllers/BookController';
 
 const models: TsoaRoute.Models = {
+    "Book": {
+        "properties": {
+            "series": { "dataType": "string" },
+            "name": { "dataType": "string", "required": true },
+            "author": { "dataType": "string", "required": true },
+        },
+    },
 };
 
 export function RegisterRoutes(server: any) {
+    server.route({
+        method: 'get',
+        path: '/api/v1/books',
+        config: {
+            handler: (request: any, reply: any) => {
+                const args = {
+                };
+
+                let validatedArgs: any[] = [];
+                try {
+                    validatedArgs = getValidatedArgs(args, request);
+                } catch (err) {
+                    return reply(err).code(err.status || 500);
+                }
+
+                const controller = new BookController();
+
+                const promise = controller.retrieve.apply(controller, validatedArgs);
+                return promiseHandler(controller, promise, request, reply);
+            }
+        }
+    });
 
 
     function isController(object: any): object is Controller {

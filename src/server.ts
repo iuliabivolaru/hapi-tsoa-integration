@@ -1,30 +1,44 @@
 import * as Hapi from "hapi";
+import { App } from "./app";
+import * as http from "http";
 
-export function init(
-): Hapi.Server {
-  try {
-    const server = new Hapi.Server({
-      host: 'localhost',
-      port: 3000
-    });
+// export function init(
+// ): Hapi.Server {
+//   try {
+//     const server = new Hapi.Server({
+//       host: 'localhost',
+//       port: 3000
+//     });
   
-    server.start();
+//     server.start();
 
-    return server;
-  } catch (err) {
-    console.log("Error starting server: ", err);
-    throw err;
-  }
+//     return server;
+//   } catch (err) {
+//     console.log("Error starting server: ", err);
+//     throw err;
+//   }
 
-}
-
-
-
-
-//    server.route({
-//      method: "GET",
-//      path: "/",
-//      handler: (request: hapi.Request, reply: hapi.IReply) => {
-//      reply("Hello World")
 // }
+
+// const server: Hapi.Server = new Hapi.Server({
+//        host: 'localhost',
+//        port: 3000
+// })
+
+// server.route({
+//     method: "GET",
+//     path: "/",
+//     handler: function(request,h) {
+
+//       return'hello world';
+//   }
+
+// });
+
+
+// server.start();
+
+const hapiServer = App.build();
+hapiServer.start();
+
 

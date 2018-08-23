@@ -59,7 +59,8 @@
     "experimentalDecorators": true,
     "strictPropertyInitialization": false,
     "rootDir": ".",
-    "outDir": "./dist"
+    "outDir": "./dist",
+    "sourceMap": true
   },
   "exclude": [
     "node_modules"
