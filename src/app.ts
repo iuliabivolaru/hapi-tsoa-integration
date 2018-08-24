@@ -1,25 +1,24 @@
 import { RegisterRoutes} from "./routes";
 import * as Hapi from "hapi";
+import DataAccess from './dataAccess/DataAccess';
 
-// const server: Hapi.Server = new Hapi.Server({
-//     host: 'localhost',
-//     port: 3000
-// })
-// RegisterRoutes(server);
+class App {
 
-export class App {
-
-public static build(): Hapi.Server {
-    const server: Hapi.Server = new Hapi.Server({
+public build(): Hapi.Server {
+    const server: Hapi.Server = new Hapi.Server();
+    server.connection({
         host: 'localhost',
         port: 3000
-    });
+    })
     this.routes(server);
+    DataAccess.connect();
     return server;
 }
 
-private static routes(server: Hapi.Server): void {
+private routes(server: Hapi.Server): void {
     RegisterRoutes(server);
 }
 
 }
+
+export default new App();
