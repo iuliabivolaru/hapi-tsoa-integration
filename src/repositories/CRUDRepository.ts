@@ -1,20 +1,19 @@
-
-import 'reflect-metadata';
 import * as mongoose from 'mongoose';
-import {injectable, unmanaged} from 'inversify';
+import 'reflect-metadata';
 require('mongoose').Promise = global.Promise;
 
-@injectable()
 export class CRUDRepository<T extends mongoose.Document>  {
 
-    private model: mongoose.Model<mongoose.Document>;
+    private model: mongoose.Model<T>;
 
-    constructor( @unmanaged() model: mongoose.Model<mongoose.Document>) {
+    constructor( model: mongoose.Model<T>) {
         this.model = model;
     }
 
-    public retrieve(callback?: (error: any, result: [T]) => void): Promise<T[]> {
-        return this.model.find({}).exec() as Promise<T[]>;
-    }
+    public retrieve(callback?: (error: any, result: T[]) => void): Promise<T[]> {
+        return this.model.find({}).exec();
 
+    }
+    
 }
+
