@@ -1,7 +1,7 @@
-import * as mongoose from 'mongoose';
+import {Schema, model} from 'mongoose';
 import {BookDocument} from '../models/BookDocument';
 
-let bookSchema: mongoose.Schema = new mongoose.Schema({
+let bookSchema: Schema = new Schema({
     name: {
         type: String,
         required: true
@@ -10,6 +10,6 @@ let bookSchema: mongoose.Schema = new mongoose.Schema({
         type: String,
         required: true
     }
-});
+}, { collection: 'books' });
 
-export let bookModel = mongoose.model<BookDocument>('book', bookSchema);
+export let bookModel = model<BookDocument>('book', bookSchema);
