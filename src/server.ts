@@ -1,6 +1,6 @@
-import App from "./app";
+import HapiApp from "./HapiApp";
 
-const hapiServer = App.build();
+const hapiServer = HapiApp.build();
 hapiServer.start();
 
 
