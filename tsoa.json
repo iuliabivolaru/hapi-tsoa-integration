@@ -1,6 +1,6 @@
 {
     "swagger": {
-        "outputDirectory": "./dist/src",
+        "outputDirectory": "./dist/src/swagger-ui",
         "entryFile": "./src/index.ts",
         "basePath": "/api/v1",
         "name": "Happy tsoa",
