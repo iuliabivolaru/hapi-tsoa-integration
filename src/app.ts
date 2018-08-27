@@ -6,7 +6,6 @@ import Inert from "inert";
 class App {
 
 public build(): Hapi.Server {
-    // const Inert = require('inert');
     const server: Hapi.Server = new Hapi.Server();
     server.connection({
         host: 'localhost',
@@ -19,13 +18,12 @@ public build(): Hapi.Server {
 }
 
 private routes(server: Hapi.Server): void {
-    // let swaggerPath = '../swagger-ui';
-    // server.path(swaggerPath);
+    server.path(__dirname + '/swagger-ui');
     server.route({ 
         path: '/api/v1/redoc.html', 
         method: 'GET',
         handler: { 
-            file: '/Users/iuliabivolaru/yetAnotherHapiProject/swagger-ui/redoc.html' 
+            file: './redoc.html' 
         } 
     });
 
@@ -33,7 +31,7 @@ private routes(server: Hapi.Server): void {
         path: '/api/v1/swagger.json', 
         method: 'GET',
         handler: { 
-            file: '/Users/iuliabivolaru/yetAnotherHapiProject/swagger-ui/swagger.json' 
+            file: './swagger.json' 
         } 
     });
 
