@@ -1,4 +1,3 @@
-
 import {Connection, Schema, connect, connection } from 'mongoose';
 
 export default class DataAccess {

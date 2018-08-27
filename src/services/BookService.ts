@@ -1,4 +1,3 @@
-
 import 'reflect-metadata';
 import { Book } from '../models/Book';
 import BookRepository from '../repositories/BookRepository';
