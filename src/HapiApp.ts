@@ -3,7 +3,7 @@ import * as Hapi from "hapi";
 import DataAccess from './dataAccess/DataAccess';
 import Inert from "inert";
 
-class App {
+class HapiApp {
 
 public build(): Hapi.Server {
     const server: Hapi.Server = new Hapi.Server();
@@ -40,4 +40,4 @@ private routes(server: Hapi.Server): void {
 
 }
 
-export default new App();
+export default new HapiApp();
