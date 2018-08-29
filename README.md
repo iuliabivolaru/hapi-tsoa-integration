@@ -38,4 +38,5 @@ npm start
 ```
 
 Go to http://localhost:3000/api/v1/books to see the retrieved data from the database.
+
 Go to http://localhost:3000/api/v1/redoc.html to see the generated documentation.
