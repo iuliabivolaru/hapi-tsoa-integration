@@ -9,14 +9,6 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Project setup
 
-- generate a plain old package.json file
-```
-npm init
-```
-- create a tsconfig.json file 
-```
-tsc --init
-```
 - install typescript globally
 ```
 npm install -g typescript --save
